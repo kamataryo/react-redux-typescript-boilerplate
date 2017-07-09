@@ -6,6 +6,7 @@ import {
   ITwinStarsState,
 } from '../reducers/twinStars'
 import StarConsole from './StarConsole'
+import StarBounds from './StarBounds'
 
 interface IMappedStateToComp {
   twinStars: ITwinStarsState,
@@ -65,6 +66,7 @@ class Counter extends React.Component<IProps, {}> {
         <h2>{ 'TwinStar Simulator' }</h2>
         <StarConsole prefix={ 'Star1' } { ...twinStars.star1 } onRadiusChange={ self.updateStar1Radius } onWeightChange={ self.updateStar1Weight } />
         <StarConsole prefix={ 'Star2' } { ...twinStars.star2 } onRadiusChange={ self.updateStar2Radius } onWeightChange={ self.updateStar2Weight } />
+        <StarBounds { ...twinStars } />
       </div>
     )
   }
