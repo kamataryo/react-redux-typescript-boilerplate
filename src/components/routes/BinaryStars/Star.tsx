@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IPoint } from '../types'
+import { IPoint } from '../../../types'
 
 interface IStarProps {
   position: IPoint,
