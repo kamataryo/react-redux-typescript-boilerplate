@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { IBinaryStarsState } from '../reducers/binaryStars'
-import { IPoint, IWeightPoint } from '../types'
-import * as calc from '../lib/calc'
+import { IBinaryStarsState } from '../../../reducers/binaryStars'
+import { IPoint, IWeightPoint } from '../../../types'
+import * as calc from '../../../lib/calc'
 import Star from './Star'
 
 interface IStarBoundsState { center: IPoint }

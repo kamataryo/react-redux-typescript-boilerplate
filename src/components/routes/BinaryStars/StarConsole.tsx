@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { IStar } from '../reducers/binaryStars'
-import config from '../config.js'
+import { IStar } from '../../../reducers/binaryStars'
+import config from '../../../config.js'
 
 export interface IStarConsoleProps extends IStar {
   onRadiusChange: (value: number) => void
