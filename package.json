@@ -7,7 +7,9 @@
     "build": "webpack -p",
     "start": "webpack-dev-server --progress --colors --inline --watch",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
-    "test": "cross-env NODE_ENV=test NODE_PATH=src:test mocha"
+    "test": "cross-env NODE_ENV=test NODE_PATH=src:test mocha",
+    "__deploykey_gen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
+    "__encrypt_deploykey": "travis encrypt-file ./.travis_rsa --add"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "@types/webpack-env": "^1.13.0",
     "cross-env": "^5.0.1",
     "html-webpack-plugin": "^2.29.0",
+    "mocha": "^3.4.2",
     "react-hot-loader": "^3.0.0-beta.7",
     "ts-loader": "^2.2.2",
     "tslint": "^5.5.0",
