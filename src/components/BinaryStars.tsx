@@ -66,7 +66,7 @@ class Counter extends React.Component<IProps, {}> {
         <h2>{ 'BinaryStar Simulator' }</h2>
         <StarConsole prefix={ 'Star1' } { ...binaryStars.star1 } onRadiusChange={ self.updateStar1Radius } onWeightChange={ self.updateStar1Weight } />
         <StarConsole prefix={ 'Star2' } { ...binaryStars.star2 } onRadiusChange={ self.updateStar2Radius } onWeightChange={ self.updateStar2Weight } />
-        <StarBounds { ...binaryStars } />
+        <StarBounds { ...binaryStars } width={ 500 } height={ 500 } />
       </div>
     )
   }
