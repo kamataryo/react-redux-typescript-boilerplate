@@ -17,6 +17,9 @@ export default class App extends React.Component<{}, {}> {
       <div>
         <h1>{ 'React Redux TypeScript Template' }</h1>
         <p>{ 'Hello, React!' }</p>
+        <p>
+          See <a href='https://github.com/kamataryo/react-redux-typescript-boilerplate'>{ 'kamataryo/react-redux-typescript-boilerplate' }</a>.
+        </p>
         <Counter />
         <TwinStars />
       </div>

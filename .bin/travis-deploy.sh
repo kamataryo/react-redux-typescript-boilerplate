@@ -17,4 +17,4 @@ git remote add origin git@github.com:kamataryo/react-redux-typescript-boilerplat
 git checkout -b gh-pages
 git add .
 git commit -m "Deploy [made in travis cron]"
-git push origin gh-pages
+git push -f origin gh-pages
