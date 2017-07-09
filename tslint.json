@@ -8,10 +8,11 @@
     "rules": {
       "jsx-curly-spacing": [true, "always"],
       "max-line-length": false,
+      "member-ordering": false,
+      "object-literal-sort-keys": false,
       "ordered-imports": false,
       "quotemark": [true, "single", "avoid-escape", "avoid-template"],
-      "semicolon": [true, "never"],
-      "member-ordering": false
+      "semicolon": [true, "never"]
     },
     "rulesDirectory": []
 }
