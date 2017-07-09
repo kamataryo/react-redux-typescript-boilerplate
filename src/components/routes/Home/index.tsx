@@ -11,6 +11,7 @@ const Home = () => {
           <li><Link to={ '/counter' }>{ 'Number counter example' }</Link></li>
           <li><Link to={ '/binaryStars' }>{ 'Complex example' }</Link></li>
           <li><Link to={ '/' }>{ 'back to home (no contents)' }</Link></li>
+          <li>[external] <a href={ 'https://github.com/kamataryo/react-redux-typescript-boilerplate' }>Repository</a></li>
         </ul>
       </nav>
     </div>
