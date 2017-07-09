@@ -7,6 +7,7 @@ if [ $TRAVIS_BRANCH != "master" ]; then
   exit 0
 fi
 
+cp ./src/404.html ./dist/404.html # gh-pages history Api Fallback for 404
 cd dist
 
 git init

@@ -60,7 +60,9 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     // do not emit compiled assets that include errors
 
-    new HtmlWebpackPlugin({ template: './src/index.html' })
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
   ],
 
   devServer: {
