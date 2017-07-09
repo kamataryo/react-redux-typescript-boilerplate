@@ -6,9 +6,12 @@
     ],
     "jsRules": {},
     "rules": {
+      "jsx-curly-spacing": [true, "always"],
+      "max-line-length": false,
+      "ordered-imports": false,
       "quotemark": [true, "single", "avoid-escape", "avoid-template"],
       "semicolon": [true, "never"],
-      "jsx-curly-spacing": [true, "always"]
+      "member-ordering": false
     },
     "rulesDirectory": []
 }

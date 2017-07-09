@@ -20,14 +20,19 @@
   },
   "homepage": "https://github.com/kamataryo/ts-lesson#readme",
   "dependencies": {
+    "immutability-helper": "^2.2.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1"
   },
   "devDependencies": {
+    "@types/immutability-helper": "^2.0.15",
     "@types/node": "^8.0.9",
     "@types/react": "^15.0.35",
     "@types/react-dom": "^15.5.1",
     "@types/react-hot-loader": "^3.0.3",
+    "@types/react-redux": "^4.4.45",
     "@types/webpack-env": "^1.13.0",
     "cross-env": "^5.0.1",
     "html-webpack-plugin": "^2.29.0",
