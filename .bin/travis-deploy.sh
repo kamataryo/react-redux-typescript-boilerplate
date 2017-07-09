@@ -7,7 +7,12 @@ if [ $TRAVIS_BRANCH != "master" ]; then
   exit 0
 fi
 
-cp ./.bin/404.html ./dist/404.html # gh-pages history Api Fallback for 404
+# Add necessary files for gh-pages hosting
+
+## gh-pages history Api Fallback for 404
+cp ./.bin/404.html ./dist/
+## License and Readme
+cp ./*.md ./dist/
 cd dist
 
 git init
