@@ -2,14 +2,14 @@ import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
 import { IRootState } from '../store'
 import {
-  TwinStarsActionTypes,
-  ITwinStarsState,
-} from '../reducers/twinStars'
+  BinaryStarsActionTypes,
+  IBinaryStarsState,
+} from '../reducers/binaryStars'
 import StarConsole from './StarConsole'
 import StarBounds from './StarBounds'
 
 interface IMappedStateToComp {
-  twinStars: ITwinStarsState,
+  binaryStars: IBinaryStarsState,
 }
 
 interface IMappedDispatchToComp {
@@ -21,14 +21,14 @@ interface IProps extends IMappedStateToComp, IMappedDispatchToComp {}
 
 const mapStateToProps = (state: IRootState): IMappedStateToComp => {
   return ({
-    twinStars: state.twinStars,
+    binaryStars: state.binaryStars,
   })
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<IMappedDispatchToComp>): IMappedDispatchToComp => {
   return ({
-    updateStarParams: (index, paramName, value) => dispatch({ type: TwinStarsActionTypes.UpdateStarParams, payload: { index, paramName, value } }),
-    updateDistance: (value) => dispatch({ type: TwinStarsActionTypes.UpdateDistance, payload: { value } } ),
+    updateStarParams: (index, paramName, value) => dispatch({ type: BinaryStarsActionTypes.UpdateStarParams, payload: { index, paramName, value } }),
+    updateDistance: (value) => dispatch({ type: BinaryStarsActionTypes.UpdateDistance, payload: { value } } ),
   })
 }
 
@@ -58,15 +58,15 @@ class Counter extends React.Component<IProps, {}> {
     const self = this
 
     const {
-      twinStars,
+      binaryStars,
     } = this.props
 
     return (
-      <div id={ 'twin-stars' }>
-        <h2>{ 'TwinStar Simulator' }</h2>
-        <StarConsole prefix={ 'Star1' } { ...twinStars.star1 } onRadiusChange={ self.updateStar1Radius } onWeightChange={ self.updateStar1Weight } />
-        <StarConsole prefix={ 'Star2' } { ...twinStars.star2 } onRadiusChange={ self.updateStar2Radius } onWeightChange={ self.updateStar2Weight } />
-        <StarBounds { ...twinStars } />
+      <div id={ 'binary-stars' }>
+        <h2>{ 'BinaryStar Simulator' }</h2>
+        <StarConsole prefix={ 'Star1' } { ...binaryStars.star1 } onRadiusChange={ self.updateStar1Radius } onWeightChange={ self.updateStar1Weight } />
+        <StarConsole prefix={ 'Star2' } { ...binaryStars.star2 } onRadiusChange={ self.updateStar2Radius } onWeightChange={ self.updateStar2Weight } />
+        <StarBounds { ...binaryStars } />
       </div>
     )
   }

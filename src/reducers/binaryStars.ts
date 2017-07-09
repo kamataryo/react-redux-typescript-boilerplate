@@ -6,13 +6,13 @@ export interface IStar {
   radius: number,
 }
 
-export interface ITwinStarsState {
+export interface IBinaryStarsState {
   star1: IStar,
   star2: IStar,
   distance: number,
 }
 
-export enum TwinStarsActionTypes {
+export enum BinaryStarsActionTypes {
   UpdateStarParams = 'TWIN_STARS.UPDATE_STAR_PARAMS',
   UpdateDistance   = 'TWIN_STARS.UPDATE_DISTANCE',
 }
@@ -28,22 +28,22 @@ export interface IUpdateDistancePayload {
 }
 
 interface IUpdateDistanceAction {
-  type: TwinStarsActionTypes.UpdateDistance,
+  type: BinaryStarsActionTypes.UpdateDistance,
   payload: IUpdateDistancePayload,
 }
 
 interface IUpdateStateParamsAction {
-  type: TwinStarsActionTypes.UpdateStarParams,
+  type: BinaryStarsActionTypes.UpdateStarParams,
   payload: IUpdateStateParamsPayload,
 }
 
-export type TwinStarsAction = IUpdateDistanceAction|IUpdateStateParamsAction
+export type BinaryStarsAction = IUpdateDistanceAction|IUpdateStateParamsAction
 
-export interface ITwinStarsReducer<T> extends Reducer<T> {
-  (State: ITwinStarsState, Action: TwinStarsAction ): ITwinStarsState
+export interface IBinaryStarsReducer<T> extends Reducer<T> {
+  (State: IBinaryStarsState, Action: BinaryStarsAction ): IBinaryStarsState
 }
 
-export const initialState: ITwinStarsState = {
+export const initialState: IBinaryStarsState = {
   star1: {
     weight: 1000,
     radius: 50,
@@ -55,12 +55,12 @@ export const initialState: ITwinStarsState = {
   distance: 1000,
 }
 
-const twinStarsReducer: ITwinStarsReducer<ITwinStarsState> = (state: ITwinStarsState = initialState, action: TwinStarsAction): ITwinStarsState => {
+const binaryStarsReducer: IBinaryStarsReducer<IBinaryStarsState> = (state: IBinaryStarsState = initialState, action: BinaryStarsAction): IBinaryStarsState => {
 
   const { type } = action
 
   switch (type) {
-    case TwinStarsActionTypes.UpdateStarParams:
+    case BinaryStarsActionTypes.UpdateStarParams:
       const payload1 = action.payload as IUpdateStateParamsPayload
       if (payload1.index === 1) {
         return update(state, { star1: { [payload1.paramName]: { $set: payload1.value }  } })
@@ -71,7 +71,7 @@ const twinStarsReducer: ITwinStarsReducer<ITwinStarsState> = (state: ITwinStarsS
         return state
       }
 
-    case TwinStarsActionTypes.UpdateDistance:
+    case BinaryStarsActionTypes.UpdateDistance:
       const payload2 = action.payload as IUpdateDistancePayload
       return update(state, { distance: { $set: payload2.value } })
     default:
@@ -79,4 +79,4 @@ const twinStarsReducer: ITwinStarsReducer<ITwinStarsState> = (state: ITwinStarsS
   }
 }
 
-export default twinStarsReducer
+export default binaryStarsReducer

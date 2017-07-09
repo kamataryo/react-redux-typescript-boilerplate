@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ITwinStarsState as IStarBoundsProps } from '../reducers/twinStars'
+import { IBinaryStarsState as IStarBoundsProps } from '../reducers/binaryStars'
 
 interface IStarBoundsState {
   center: {

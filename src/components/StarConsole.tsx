@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IStar } from '../reducers/twinStars'
+import { IStar } from '../reducers/binaryStars'
 import config from '../config.js'
 
 export interface IStarConsoleProps extends IStar {

@@ -1,15 +1,15 @@
 import { combineReducers, createStore } from 'redux'
 import countReducer, { ICountState } from './reducers/count'
-import twinStarsReducer, { ITwinStarsState } from './reducers/twinStars'
+import binaryStarsReducer, { IBinaryStarsState } from './reducers/binaryStars'
 
 export interface IRootState {
   count: ICountState,
-  twinStars: ITwinStarsState,
+  binaryStars: IBinaryStarsState,
 }
 
 const rootReducer = combineReducers({
   count: countReducer,
-  twinStars: twinStarsReducer,
+  binaryStars: binaryStarsReducer,
 })
 
 const rootStore = createStore(rootReducer)

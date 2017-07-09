@@ -3,7 +3,7 @@ import { connect, Dispatch } from 'react-redux'
 import { IRootState } from '../store'
 import { CounterActionTypes } from '../reducers/count'
 import Counter from './Counter'
-import TwinStars from './TwinStars'
+import BinaryStars from './BinaryStars'
 
 export default class App extends React.Component<{}, {}> {
 
@@ -21,7 +21,7 @@ export default class App extends React.Component<{}, {}> {
           See <a href='https://github.com/kamataryo/react-redux-typescript-boilerplate'>{ 'kamataryo/react-redux-typescript-boilerplate' }</a>.
         </p>
         <Counter />
-        <TwinStars />
+        <BinaryStars />
       </div>
     )
   }
