@@ -3,7 +3,7 @@
 [![Linux Build Status](https://travis-ci.org/kamataryo/react-redux-typescript-boilerplate.svg?branch=master)](https://travis-ci.org/kamataryo/react-redux-typescript-boilerplate)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/hndrdtmd5jim0d7o?svg=true)](https://ci.appveyor.com/project/kamataryo/react-redux-typescript-boilerplate)
 
-[DEMO](https://kamataryo.github.io/react-redux-typescript-boilerplate/)
+[DEMO](https://react-redux-typescript-boilerplate.biwako.io)
 
 ## Required
 

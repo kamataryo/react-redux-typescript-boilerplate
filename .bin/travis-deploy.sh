@@ -10,7 +10,9 @@ fi
 # Add necessary files for gh-pages hosting
 
 ## gh-pages history Api Fallback for 404
-cp ./.bin/404.html ./dist/
+curl https://raw.githubusercontent.com/rafrex/spa-github-pages/gh-pages/404.html > ./dist/404.html
+## CNAME
+cp ./.bin/CNAME ./dist/
 ## License and Readme
 cp ./*.md ./dist/
 cd dist
