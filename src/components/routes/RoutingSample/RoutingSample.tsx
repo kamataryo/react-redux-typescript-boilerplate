@@ -13,6 +13,7 @@ import { Event } from '../../../types'
 
 interface MappedStateToComp {
   pathname?: string,
+  query?: string,
 }
 
 interface MappedDispatchToComp {
@@ -24,6 +25,7 @@ interface MappedDispatchToComp {
 const mapStateToProps = (state: RootState): MappedStateToComp => {
   return ({
     pathname : state.routing.location ? state.routing.location.pathname : undefined,
+    query    : state.routing.location ? state.routing.location.search : undefined,
   })
 }
 
@@ -55,6 +57,7 @@ class RoutingSample extends React.Component<Props, State> {
     this.state = {
       readyToGoBack: false,
     }
+
     this.onTryPushClick = () => {
       props.push('/you/can/route')
       this.setState({ readyToGoBack: true })
@@ -74,7 +77,7 @@ class RoutingSample extends React.Component<Props, State> {
   }
 
   public render() {
-
+    console.log(this.props.query)
     const self = this
 
     const {
