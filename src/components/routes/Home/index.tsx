@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
+export const HOME_ROUTE = '/'
+
 const Home = () => {
   return (
     <div className={ 'route-home' }>
@@ -9,8 +11,7 @@ const Home = () => {
       <nav role={ 'nav' }>
         <ul>
           <li><Link to={ '/counter' }>{ 'Number counter example' }</Link></li>
-          <li><Link to={ '/binaryStars' }>{ 'Complex example' }</Link></li>
-          <li><Link to={ '/routingSample' }>{ 'Routing example' }</Link></li>
+          <li><Link to={ '/RoutingSample' }>{ 'Routing example' }</Link></li>
           <li><Link to={ '/' }>{ 'back to home (no contents)' }</Link></li>
           <li>[external] <a href={ 'https://github.com/kamataryo/react-redux-typescript-boilerplate' }>Repository</a></li>
         </ul>

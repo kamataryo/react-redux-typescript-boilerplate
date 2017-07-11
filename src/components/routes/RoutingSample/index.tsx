@@ -1,8 +1,6 @@
 import * as React from 'react'
 import RoutingSample from './RoutingSample'
 
-const RoutingSampleContainer = () => {
-  return <RoutingSample />
-}
+const RoutingSampleContainer = () => <RoutingSample />
 
 export default RoutingSampleContainer
