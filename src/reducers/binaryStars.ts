@@ -1,15 +1,15 @@
-import { Action, Reducer } from 'redux'
+import {  Reducer } from 'redux'
 import * as update from 'immutability-helper'
 
-export interface IStar {
+export interface Star {
   weight: number,
   radius: number,
 }
 
-export interface IBinaryStarsState {
-  star1: IStar,
-  star2: IStar,
-  distance: number,
+export interface BinaryStarsState {
+  star1    : Star,
+  star2    : Star,
+  distance : number,
 }
 
 export enum BinaryStarsActionTypes {
@@ -17,51 +17,45 @@ export enum BinaryStarsActionTypes {
   UpdateDistance   = 'TWIN_STARS.UPDATE_DISTANCE',
 }
 
-export interface IUpdateStateParamsPayload {
-  index: 1|2,
-  paramName: 'weight'|'radius',
+export interface UpdateStateParamsPayload {
+  index     : 1|2,
+  paramName : 'weight'|'radius',
+  value     : number,
+}
+
+export interface UpdateDistancePayload {
   value: number,
 }
 
-export interface IUpdateDistancePayload {
-  value: number,
+interface UpdateDistanceAction {
+  type    : BinaryStarsActionTypes.UpdateDistance,
+  payload : UpdateDistancePayload,
 }
 
-interface IUpdateDistanceAction {
-  type: BinaryStarsActionTypes.UpdateDistance,
-  payload: IUpdateDistancePayload,
+interface UpdateStateParamsAction {
+  type    : BinaryStarsActionTypes.UpdateStarParams,
+  payload : UpdateStateParamsPayload,
 }
 
-interface IUpdateStateParamsAction {
-  type: BinaryStarsActionTypes.UpdateStarParams,
-  payload: IUpdateStateParamsPayload,
+export type BinaryStarsAction = UpdateDistanceAction|UpdateStateParamsAction
+
+export interface BinaryStarsReducer<T> extends Reducer<T> {
+  (State: BinaryStarsState, Action: BinaryStarsAction ): BinaryStarsState
 }
 
-export type BinaryStarsAction = IUpdateDistanceAction|IUpdateStateParamsAction
-
-export interface IBinaryStarsReducer<T> extends Reducer<T> {
-  (State: IBinaryStarsState, Action: BinaryStarsAction ): IBinaryStarsState
+export const initialState: BinaryStarsState = {
+  star1    : { weight: 1000, radius: 50 },
+  star2    : { weight: 1200, radius: 60 },
+  distance : 1000,
 }
 
-export const initialState: IBinaryStarsState = {
-  star1: {
-    weight: 1000,
-    radius: 50,
-  },
-  star2: {
-    weight: 1200,
-    radius: 60,
-  },
-  distance: 1000,
-}
-
-const binaryStarsReducer: IBinaryStarsReducer<IBinaryStarsState> = (state: IBinaryStarsState = initialState, action: BinaryStarsAction): IBinaryStarsState => {
+const binaryStarsReducer: BinaryStarsReducer<BinaryStarsState> = (state: BinaryStarsState = initialState, action: BinaryStarsAction): BinaryStarsState => {
 
   const { type } = action
 
   switch (type) {
     case BinaryStarsActionTypes.UpdateStarParams:
-      const payload1 = action.payload as IUpdateStateParamsPayload
+      const payload1 = action.payload as UpdateStateParamsPayload
       if (payload1.index === 1) {
         return update(state, { star1: { [payload1.paramName]: { $set: payload1.value }  } })
       } else if (payload1.index === 2) {
@@ -72,7 +66,7 @@ const binaryStarsReducer: IBinaryStarsReducer<IBinaryStarsState> = (state: IBina
       }
 
     case BinaryStarsActionTypes.UpdateDistance:
-      const payload2 = action.payload as IUpdateDistancePayload
+      const payload2 = action.payload as UpdateDistancePayload
       return update(state, { distance: { $set: payload2.value } })
     default:
       return state

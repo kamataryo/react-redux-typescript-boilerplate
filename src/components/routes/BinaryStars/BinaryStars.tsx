@@ -1,52 +1,52 @@
 import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
-import { IRootState } from '../../../store'
+import { RootState } from '../../../store'
 import {
   BinaryStarsActionTypes,
-  IBinaryStarsState,
+  BinaryStarsState,
 } from '../../../reducers/binaryStars'
 import StarConsole from './StarConsole'
 import StarBounds from './StarBounds'
 
-interface IMappedStateToComp {
-  binaryStars: IBinaryStarsState,
+interface MappedStateToComp {
+  binaryStars: BinaryStarsState,
 }
 
-interface IMappedDispatchToComp {
-  updateStarParams?: (index: number, paramName: 'weight'|'radius', value: number) => void,
-  updateDistance?: (index: number) => void,
+interface MappedDispatchToComp {
+  updateStarParams? : (index: number, paramName: 'weight'|'radius', value: number) => void,
+  updateDistance?   : (index: number)                                              => void,
 }
 
-interface IProps extends IMappedStateToComp, IMappedDispatchToComp {}
+interface Props extends MappedStateToComp, MappedDispatchToComp {}
 
-const mapStateToProps = (state: IRootState): IMappedStateToComp => {
+const mapStateToProps = (state: RootState): MappedStateToComp => {
   return ({
     binaryStars: state.binaryStars,
   })
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<IMappedDispatchToComp>): IMappedDispatchToComp => {
+const mapDispatchToProps = (dispatch: Dispatch<MappedDispatchToComp>): MappedDispatchToComp => {
   return ({
-    updateStarParams: (index, paramName, value) => dispatch({ type: BinaryStarsActionTypes.UpdateStarParams, payload: { index, paramName, value } }),
-    updateDistance: (value) => dispatch({ type: BinaryStarsActionTypes.UpdateDistance, payload: { value } } ),
+    updateStarParams : (index, paramName, value) => dispatch({ type: BinaryStarsActionTypes.UpdateStarParams, payload : { index, paramName, value } }),
+    updateDistance   : (value)                   => dispatch({ type: BinaryStarsActionTypes.UpdateDistance,   payload : { value } } ),
   })
 }
 
-class Counter extends React.Component<IProps, {}> {
+class Counter extends React.Component<Props, {}> {
 
-  private updateStar1Weight: (value: number) => void
-  private updateStar1Radius: (value: number) => void
-  private updateStar2Weight: (value: number) => void
-  private updateStar2Radius: (value: number) => void
-  private updateDistance: (value: number) => void
+  private updateStar1Weight : (value: number) => void
+  private updateStar1Radius : (value: number) => void
+  private updateStar2Weight : (value: number) => void
+  private updateStar2Radius : (value: number) => void
+  private updateDistance    : (value: number) => void
 
-  public constructor(props: IProps) {
+  public constructor(props: Props) {
     super(props)
     this.updateStar1Weight = (value) => props.updateStarParams && props.updateStarParams(1, 'weight', value)
     this.updateStar1Radius = (value) => props.updateStarParams && props.updateStarParams(1, 'radius', value)
     this.updateStar2Weight = (value) => props.updateStarParams && props.updateStarParams(2, 'weight', value)
     this.updateStar2Radius = (value) => props.updateStarParams && props.updateStarParams(2, 'radius', value)
-    this.updateDistance = (value) => props.updateDistance && props.updateDistance(value)
+    this.updateDistance    = (value) => props.updateDistance   && props.updateDistance(value)
   }
 
   /**

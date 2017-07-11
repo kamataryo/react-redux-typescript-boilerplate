@@ -1,8 +1,10 @@
-export interface IPoint {
+export interface Point {
   x: number,
   y: number,
 }
 
-export interface IWeightPoint extends IPoint {
+export interface WeightPoint extends Point {
   weight: number,
 }
+
+export interface Event { target: { value: string } }

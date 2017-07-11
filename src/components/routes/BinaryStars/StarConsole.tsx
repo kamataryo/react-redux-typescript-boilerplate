@@ -1,25 +1,24 @@
 import * as React from 'react'
-import { IStar } from '../../../reducers/binaryStars'
+import { Star } from '../../../reducers/binaryStars'
 import config from '../../../config.js'
+import { Event } from '../../../types'
 
-export interface IStarConsoleProps extends IStar {
-  onRadiusChange: (value: number) => void
-  onWeightChange: (value: number) => void
-  prefix?: string,
+export interface StarConsoleProps extends Star {
+  onRadiusChange : (value: number) => void
+  onWeightChange : (value: number) => void
+  prefix?        : string,
 }
 
-interface IEvent { target: { value: string } }
+export default class StarConsole extends React.Component<StarConsoleProps, {}> {
 
-export default class StarConsole extends React.Component<IStarConsoleProps, {}> {
-
-  private onWeightChange: (e: IEvent) => void
-  private onRadiusChange: (e: IEvent) => void
+  private onWeightChange: (e: Event) => void
+  private onRadiusChange: (e: Event) => void
 
   public static defaultProps = {
     prefix: '',
   }
 
-  public constructor(props: IStarConsoleProps) {
+  public constructor(props: StarConsoleProps) {
     super(props)
     this.onWeightChange = (e) => props.onWeightChange(parseInt(e.target.value, 10))
     this.onRadiusChange = (e) => props.onRadiusChange(parseInt(e.target.value, 10))
@@ -33,8 +32,8 @@ export default class StarConsole extends React.Component<IStarConsoleProps, {}> 
       prefix,
       weight,
       radius,
-      onWeightChange,
-      onRadiusChange,
+      // onWeightChange,
+      // onRadiusChange,
     } = this.props
 
     return (

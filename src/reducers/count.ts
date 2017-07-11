@@ -1,11 +1,11 @@
 import { Action, Reducer } from 'redux'
 import * as update from 'immutability-helper'
 
-export interface ICountState {
+export interface CountState {
   value: number,
 }
 
-export const initialState: ICountState = {
+export const initialState: CountState = {
   value: 0,
 }
 
@@ -14,16 +14,16 @@ export enum CounterActionTypes {
   Double = 'COUNTER.DOUBLE',
 }
 
-export interface ICountAction extends Action {
-  type: CounterActionTypes,
-  payload: any,
+export interface CountAction extends Action {
+  type    : CounterActionTypes,
+  payload : any,
 }
 
-export interface ICountReducer<T> extends Reducer<T> {
-  (State: ICountState, Action: ICountAction ): ICountState
+export interface CountReducer<T> extends Reducer<T> {
+  (State: CountState, Action: CountAction ): CountState
 }
 
-const countReducer: ICountReducer<ICountState> = (state: ICountState = initialState, action: ICountAction): ICountState => {
+const countReducer: CountReducer<CountState> = (state: CountState = initialState, action: CountAction): CountState => {
 
   const { type, payload } = action
 

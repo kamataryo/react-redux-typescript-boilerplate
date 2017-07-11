@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { connect, Dispatch } from 'react-redux'
-import { IRootState } from '../../../store'
+import { RootState } from '../../../store'
 import { CounterActionTypes } from '../../../reducers/count'
 
-interface IMappedStateToComp {
+interface MappedStateToComp {
   count?: number,
 }
 
-interface IMappedDispatchToComp {
+interface MappedDispatchToComp {
   add?: (value: number) => void,
   double?: () => void,
 }
@@ -16,33 +16,33 @@ interface IMappedDispatchToComp {
  * If we want to give props fromparent, define here.
  * @type {interface}
  */
-export interface ICounterProps { noop?: any }
+export interface CounterProps { noop?: any }
 
-interface IProps extends IMappedStateToComp, IMappedDispatchToComp, ICounterProps {}
+interface Props extends MappedStateToComp, MappedDispatchToComp, CounterProps {}
 
-const mapStateToProps = (state: IRootState): IMappedStateToComp => {
+const mapStateToProps = (state: RootState): MappedStateToComp => {
   return ({
     count: state.count.value,
   })
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<IMappedDispatchToComp>): IMappedDispatchToComp => {
+const mapDispatchToProps = (dispatch: Dispatch<MappedDispatchToComp>): MappedDispatchToComp => {
   return ({
     add: (value: number) => { dispatch({ type: CounterActionTypes.Add, payload: { value }  }) },
     double: () => { dispatch({ type: CounterActionTypes.Double }) },
   })
 }
 
-class Counter extends React.Component<IProps, {}> {
+class Counter extends React.Component<Props, {}> {
 
-  private increase: () => void
-  private decrease: () => void
-  private duplicate: () => void
+  private increase  : () => void
+  private decrease  : () => void
+  private duplicate : () => void
 
-  public constructor(props: IProps) {
+  public constructor(props: Props) {
     super(props)
-    this.increase = () => props.add && props.add(1)
-    this.decrease = () => props.add && props.add(-1)
+    this.increase  = () => props.add && props.add(1)
+    this.decrease  = () => props.add && props.add(-1)
     this.duplicate = () => props.double && props.double()
   }
 
@@ -56,8 +56,6 @@ class Counter extends React.Component<IProps, {}> {
 
     const {
       count,
-      add,
-      double,
     } = this.props
 
     return (

@@ -12,7 +12,9 @@
       "object-literal-sort-keys": false,
       "ordered-imports": false,
       "quotemark": [true, "single", "avoid-escape", "avoid-template"],
-      "semicolon": [true, "never"]
+      "semicolon": [true, "never"],
+      "typedef-whitespace": false,
+      "interface-name": [true, "never-prefix"]
     },
     "rulesDirectory": []
 }

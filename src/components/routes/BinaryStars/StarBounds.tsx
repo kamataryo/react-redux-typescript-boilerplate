@@ -1,19 +1,19 @@
 import * as React from 'react'
-import { IBinaryStarsState } from '../../../reducers/binaryStars'
-import { IPoint, IWeightPoint } from '../../../types'
-import * as calc from '../../../lib/calc'
+import { BinaryStarsState } from '../../../reducers/binaryStars'
+import { Point, WeightPoint } from '../../../types'
+// import * as calc from '../../../lib/calc'
 import Star from './Star'
 
-interface IStarBoundsState { center: IPoint }
+interface StarBoundsState { center: Point }
 
-interface IStarBoundsProps extends IBinaryStarsState {
-  width: number,
-  height: number,
+interface StarBoundsProps extends BinaryStarsState {
+  width  : number,
+  height : number,
 }
 
-export default class StartBounds extends React.Component<IStarBoundsProps, IStarBoundsState> {
+export default class StartBounds extends React.Component<StarBoundsProps, StarBoundsState> {
 
-  public constructor(props: IStarBoundsProps) {
+  public constructor(props: StarBoundsProps) {
     super(props)
     this.state = {
       center: {
@@ -27,18 +27,18 @@ export default class StartBounds extends React.Component<IStarBoundsProps, IStar
     const { star1, star2, width, height } = this.props
     const style = { width, height, border: '1px solid black' }
 
-    const star1Position: IWeightPoint = {
-      x: 0,
-      y: height / 2,
-      weight: star1.weight,
+    const star1Position: WeightPoint = {
+      x      : 0,
+      y      : height / 2,
+      weight : star1.weight,
     }
-    const star2Position: IWeightPoint = {
-      x: width,
-      y: height / 2,
-      weight: star2.weight,
+    const star2Position: WeightPoint = {
+      x      : width,
+      y      : height / 2,
+      weight : star2.weight,
     }
 
-    const gravityCenter = calc.gravityCenter(star1Position, star2Position)
+    // const gravityCenter = calc.gravityCenter(star1Position, star2Position)
 
     return (
       <div style={ style }>
