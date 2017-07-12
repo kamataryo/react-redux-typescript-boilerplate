@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 export interface OwnProps {
-  x      : string,
   count  : number,
   add    : (x: number) => void,
   double : ()          => void,

@@ -17,6 +17,6 @@ const mapStateToProps = (state: RootState): StateProps => {
 }
 
 // `OwnProps | AntiStateProps` intended to remove StateProps required value from OwnProps
-const ActiveLinkContainer = connect<StateProps, {}, OwnProps | AntiStateProps>(mapStateToProps, {})(ActiveLink)
+const ActiveLinkContainer = connect<StateProps, {}, OwnProps|AntiStateProps>(mapStateToProps, {})(ActiveLink)
 
 export default ActiveLinkContainer

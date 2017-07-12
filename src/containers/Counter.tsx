@@ -1,10 +1,14 @@
 import { connect, Dispatch } from 'react-redux'
 import { RootState } from '../store'
 import { CounterActionTypes } from '../reducers/count'
-import Counter from '../components/Counter'
+import Counter, { OwnProps } from '../components/Counter'
 
 interface StateProps {
   count : number,
+}
+
+interface AntiStateProps {
+  counter? : number,
 }
 
 interface DispatchProps {
@@ -25,4 +29,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>): DispatchProps =>
   })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect<StateProps, DispatchProps, OwnProps|AntiStateProps>(mapStateToProps, mapDispatchToProps)(Counter)
