@@ -4,9 +4,10 @@ import rootStore, { history } from '../store'
 import { Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 
-import Home from '../routes/HomeView'
 import CounterView from '../routes/CounterView'
-import RoutingSample from '../routes/RoutingSampleView'
+import HomeView from '../routes/HomeView'
+import RouterView from '../routes/RouterView'
+import CalenderView from '../routes/CalenderView'
 
 const Routes = () => {
 
@@ -14,9 +15,10 @@ const Routes = () => {
     <Provider store={ rootStore }>
       <ConnectedRouter history={ history }>
         <div>
-          <Route path={ '/' } component={ Home } />
+          <Route path={ '/' } component={ HomeView } />
           <Route path={ '/counter' } component={ CounterView } />
-          <Route path={ '/routingSample' } component={ RoutingSample } />
+          <Route path={ '/router' } component={ RouterView } />
+          <Route path={ '/calender' } component={ CalenderView } />
         </div>
       </ConnectedRouter>
     </Provider>

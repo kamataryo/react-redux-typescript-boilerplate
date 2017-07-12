@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-// import Calender from 'react-ja-date-picker'
-
 export interface OwnProps {
   push: (dir: string) => void,
 }

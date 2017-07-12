@@ -9,7 +9,8 @@ const Home = () => {
       <nav role={ 'nav' }>
         <ul>
           <li><ActiveLink to={ '/counter' }>{ 'Number counter example' }</ActiveLink></li>
-          <li><ActiveLink to={ '/routingSample' }>{ 'Routing example' }</ActiveLink></li>
+          <li><ActiveLink to={ '/router' }>{ 'Routing example' }</ActiveLink></li>
+          <li><ActiveLink to={ '/calender' }>{ 'CalenderPicker with external Component' }</ActiveLink></li>
           <li><ActiveLink to={ '/' }>{ 'back to home (no contents)' }</ActiveLink></li>
           <li>[external] <a href={ 'https://github.com/kamataryo/react-redux-typescript-boilerplate' }>Repository</a></li>
         </ul>

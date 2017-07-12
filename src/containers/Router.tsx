@@ -1,6 +1,6 @@
 import { push as createPushAction } from 'react-router-redux'
 import { connect, Dispatch } from 'react-redux'
-import RoutingSample, { OwnProps } from '../components/RoutingSample'
+import RoutingSample, { OwnProps } from '../components/Router'
 
 interface StateProps {}
 
