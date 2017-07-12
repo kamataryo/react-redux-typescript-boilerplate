@@ -8,13 +8,13 @@ export const history = createBrowserHistory()
 const middleware = routerMiddleware(history)
 
 export interface RootState {
-  count       : CountState,
-  routing     : RouterState,
+  readonly count   : CountState,
+  readonly routing : RouterState,
 }
 
 const rootReducer = combineReducers({
-  count       : countReducer,
-  routing     : routerReducer as Reducer<RouterState>,
+  count   : countReducer,
+  routing : routerReducer as Reducer<RouterState>,
 })
 
 const rootStore = createStore(

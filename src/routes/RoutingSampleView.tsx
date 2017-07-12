@@ -1,5 +1,5 @@
 import * as React from 'react'
-import RoutingSample from './RoutingSample'
+import RoutingSample from '../containers/RoutingSample'
 
 const RoutingSampleContainer = () => <RoutingSample />
 

@@ -4,23 +4,23 @@ import rootStore, { history } from '../store'
 import { Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 
-import Home from '../components/routes/Home'
-import Counter from '../components/routes/Counter'
-import RoutingSample from '../components/routes/RoutingSample'
+import Home from '../routes/HomeView'
+import CounterView from '../routes/CounterView'
+import RoutingSample from '../routes/RoutingSampleView'
 
-const AppContainer = () => {
+const Routes = () => {
 
   return (
     <Provider store={ rootStore }>
       <ConnectedRouter history={ history }>
         <div>
           <Route path={ '/' } component={ Home } />
-          <Route path={ '/counter' } component={ Counter } />
-          <Route path={ '/routingSample' } component={ RoutingSample } exact />
+          <Route path={ '/counter' } component={ CounterView } />
+          <Route path={ '/routingSample' } component={ RoutingSample } />
         </div>
       </ConnectedRouter>
     </Provider>
   )
 }
 
-export default AppContainer
+export default Routes

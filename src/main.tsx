@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { AppContainer as HMRContainer } from 'react-hot-loader'
-import App from './containers/AppContainer'
+import Routes from './routes'
 
+const App = Routes
 const ROOT = document.getElementById('app')
 
 // Go!
@@ -15,8 +16,8 @@ render(
 
 // Hot Module Replacement settings
 if (module.hot) {
-  module.hot.accept('./containers/AppContainer', () => {
-    const NextApp = require('./containers/AppContainer').default
+  module.hot.accept('./routes', () => {
+    const NextApp = require('./routes').default
     render(
       <HMRContainer>
         <NextApp />

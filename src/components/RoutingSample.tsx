@@ -1,35 +1,10 @@
 import * as React from 'react'
-import { push as createPushAction } from 'react-router-redux'
-import { connect, Dispatch } from 'react-redux'
-import { RootState } from '../../../store'
 
 // import Calender from 'react-ja-date-picker'
 
-interface MappedStateToComp {
-  pathname: string,
-  search: string,
+export interface OwnProps {
+  push: (dir: string) => void,
 }
-
-interface MappedDispatchToComp {
-  push    : (dir: string) => void,
-}
-
-const mapStateToProps = (state: RootState): MappedStateToComp => {
-  return ({
-    pathname : state.routing.location ? state.routing.location.pathname : '',
-    search   : state.routing.location ? state.routing.location.search : '',
-  })
-}
-
-const mapDispatchToProps = (dispatch: Dispatch<MappedDispatchToComp>): MappedDispatchToComp => {
-  return ({
-    push : (dir) => dispatch(createPushAction(dir)),
-  })
-}
-
-export interface RoutingSampleProps { noop?: any }
-
-interface Props extends MappedStateToComp, MappedDispatchToComp, RoutingSampleProps {}
 
 interface State {
   secToLeave : number,
@@ -41,11 +16,11 @@ const initialState: State = {
   isLeaving  : false,
 }
 
-class RoutingSample extends React.Component<Props, State> {
+export default class RoutingSample extends React.Component<OwnProps, State> {
 
   private onTryLeaveClick: () => void
 
-  public constructor(props: Props) {
+  public constructor(props: OwnProps) {
     super(props)
     this.state = initialState
 
@@ -78,5 +53,3 @@ class RoutingSample extends React.Component<Props, State> {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(RoutingSample)
