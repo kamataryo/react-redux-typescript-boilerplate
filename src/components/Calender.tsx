@@ -1,7 +1,7 @@
-import CalenderPicker from 'react-ja-date-picker'
 import * as React from 'react'
-
-const CalenderPicker = () => <span>{ 'カレンダー' }</span>
+/* tslint:disable */
+const CalenderPicker = require('react-ja-date-picker').default
+/* tslint:enable */
 
 export interface OwnProps {
   year  : number,
@@ -47,7 +47,7 @@ export default class Calender extends React.Component<OwnProps, OwnState> {
     return (
       <div className={ 'calender-picker' }>
         <span className={ 'display-date' }>{ dateString }</span>
-        { isOpen ? <CalenderPicker onSelect={ onCalenderSelect } /> : <button onClick={ onOpenClick }>{ 'open' }</button> }
+        { isOpen ? <CalenderPicker onSelect={ onCalenderSelect } /> : <button onClick={ onOpenClick }>{ 'select date' }</button> }
       </div>
     )
   }
