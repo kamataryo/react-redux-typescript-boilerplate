@@ -10,7 +10,6 @@ import RouterView from '../routes/RouterView'
 import CalenderView from '../routes/CalenderView'
 
 const Routes = () => {
-
   return (
     <Provider store={ rootStore }>
       <ConnectedRouter history={ history }>
@@ -24,5 +23,4 @@ const Routes = () => {
     </Provider>
   )
 }
-
 export default Routes

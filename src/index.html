@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>React Redux TypeScript template</title>
+    <script>
+    // gh-pages 404 fallback
+    const pathname = document.location.pathname
+    const search = document.location.search.substr(1)
+    const queries = qs.parse(search)
+
+    if (pathname === '/' && queries.__gh_pages_dir) {
+      document.location.replace(queries.__gh_pages_dir)
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>
