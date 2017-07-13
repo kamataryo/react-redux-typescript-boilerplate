@@ -9,7 +9,6 @@ fi
 
 # Add necessary files for gh-pages hosting
 
-cp ./src/404.html ./dist/
 ## CNAME
 cp ./.bin/CNAME ./dist/
 ## License and Readme
