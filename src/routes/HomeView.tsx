@@ -1,22 +1,14 @@
 import * as React from 'react'
-import ActiveLink from '../containers/ActiveLink'
+import Navigation from '../components/Navigation'
 
-const Home = () => {
+const HomeView = () => {
   return (
-    <div className={ 'route-home' }>
+    <div id={ 'home-view' }>
       <h1>{ 'React Redux React-Router TypeScript Template' }</h1>
       <p>{ 'Hello, React!' }</p>
-      <nav role={ 'nav' }>
-        <ul>
-          <li><ActiveLink to={ '/counter' }>{ 'Number counter example' }</ActiveLink></li>
-          <li><ActiveLink to={ '/router' }>{ 'Routing example' }</ActiveLink></li>
-          <li><ActiveLink to={ '/calender' }>{ 'CalenderPicker with external Component' }</ActiveLink></li>
-          <li><ActiveLink to={ '/' }>{ 'back to home (no contents)' }</ActiveLink></li>
-          <li>[external] <a href={ 'https://github.com/kamataryo/react-redux-typescript-boilerplate' }>Repository</a></li>
-        </ul>
-      </nav>
+      <Navigation />
     </div>
   )
 }
 
-export default Home
+export default HomeView

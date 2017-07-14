@@ -1,6 +1,12 @@
 import * as React from 'react'
-import RoutingSample from '../containers/Router'
+import RoutingSampleContainer from '../containers/Router'
 
-const RoutingSampleContainer = () => <RoutingSample />
+const RoutingSampleView = () => {
+  return (
+    <div id={ 'routing-sample-view' }>
+      <RoutingSampleContainer />
+    </div>
+  )
+}
 
-export default RoutingSampleContainer
+export default RoutingSampleView
