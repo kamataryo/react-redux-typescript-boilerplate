@@ -5,10 +5,10 @@ import { shallow } from 'enzyme'
 import HomeView from '../../../src/routes/HomeView'
 import Navigation from '../../../src/components/Navigation'
 
-describe('test counter view', () => {
+describe('test Home view', () => {
   it('should render counter-view element.', () => {
     const wrapper = shallow(<HomeView />)
-    assert(wrapper.find('#counter-view').length === 1)
+    assert(wrapper.find('#home-view').length === 1)
   })
 
   it('should render Home component.', () => {

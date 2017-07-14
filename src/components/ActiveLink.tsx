@@ -12,9 +12,9 @@ const ActiveLink = (props: OwnProps) => {
   const { pathname, to, children } = props
 
   if (pathname === to) {
-    return <span className={ 'active' }>{ children }</span>
+    return <span className={ 'active-link active' }>{ children }</span>
   } else {
-    return <Link className={ 'in-active' } to={ to ? to : '/' }>{ children }</Link>
+    return <Link className={ 'active-link in-active' } to={ to ? to : '/' }>{ children }</Link>
   }
 }
 

@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as assert from 'power-assert'
 import { shallow } from 'enzyme'
 import CalenderView from '../../../src/routes/CalenderView'
-import CalenderContainer from '../../../src/containers/Counter'
+import CalenderContainer from '../../../src/containers/Calender'
 
 describe('test calender view', () => {
   it('should render calender-view element.', () => {
