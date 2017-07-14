@@ -2,7 +2,6 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import { AppContainer as HMRContainer } from 'react-hot-loader'
 import Routes from './routes'
-import * as qs from 'querystring'
 
 const App = Routes
 const ROOT = document.getElementById('app')
