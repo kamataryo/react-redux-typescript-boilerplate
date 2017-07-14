@@ -6,7 +6,8 @@ export interface StateProps {
   pathname: string,
 }
 interface AntiStateProps {
-  pathname?: string,
+  pathname? : string,
+  store?    : any,
 }
 
 const mapStateToProps = (state: RootState): StateProps => {
