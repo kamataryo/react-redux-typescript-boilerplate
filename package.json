@@ -1,5 +1,5 @@
 {
-  "name": "ts-lesson",
+  "name": "react-redux-typescript-boilerplate",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -8,21 +8,41 @@
     "start": "webpack-dev-server --progress --colors --inline --watch",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' && tsc -p ./ --noEmit",
     "test": "cross-env NODE_ENV=test NODE_PATH=src:test mocha",
+    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text-lcov npm test",
     "__deploykey_gen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
     "__encrypt_deploykey": "travis encrypt-file ./.travis_rsa --add"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kamataryo/ts-lesson.git"
+    "url": "git+https://github.com/kamataryo/react-redux-typescript-boilerplate.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kamataryo/ts-lesson/issues"
+    "url": "https://github.com/kamataryo/react-redux-typescript-boilerplate/issues"
   },
-  "homepage": "https://github.com/kamataryo/ts-lesson#readme",
+  "homepage": "https://github.com/kamataryo/react-redux-typescript-boilerplate#readme",
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/*.tsx",
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extensions": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
+  },
   "dependencies": {
-    "@types/enzyme": "^2.8.2",
     "enzyme": "^2.9.1",
     "history": "^4.6.3",
     "immutability-helper": "^2.2.3",
@@ -37,6 +57,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.0.1",
+    "@types/enzyme": "^2.8.2",
     "@types/immutability-helper": "^2.0.15",
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.9",
@@ -54,7 +75,9 @@
     "cross-env": "^5.0.1",
     "html-webpack-plugin": "^2.29.0",
     "intelli-espower-loader": "^1.0.1",
+    "lcov-parse": "^1.0.0",
     "mocha": "^3.4.2",
+    "nyc": "^11.0.3",
     "power-assert": "^1.4.4",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-test-renderer": "^15.6.1",
