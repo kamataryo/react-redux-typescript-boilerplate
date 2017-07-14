@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { RootState } from '../store'
 import ActiveLink, { OwnProps } from '../components/ActiveLink'
 
-interface StateProps {
+export interface StateProps {
   pathname: string,
 }
 interface AntiStateProps {
@@ -16,7 +16,7 @@ const mapStateToProps = (state: RootState): StateProps => {
   })
 }
 
-// `OwnProps | AntiStateProps` intended to remove StateProps required value from OwnProps
+// `OwnProps|AntiStateProps` intended to remove StateProps required value from OwnProps
 const ActiveLinkContainer = connect<StateProps, {}, OwnProps|AntiStateProps>(mapStateToProps, {})(ActiveLink)
 
 export default ActiveLinkContainer
