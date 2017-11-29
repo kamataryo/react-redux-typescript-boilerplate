@@ -2,23 +2,30 @@ const path              = require('path')
 const webpack           = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const PROD = process.env.NODE_ENV === 'production'
+
+const entry = PROD ?
+  [ './src/main.tsx',
+  // the entry point of our app
+  ] : [
+  'react-hot-loader/patch',
+  // activate HMR for React
+
+  'webpack-dev-server/client?http://localhost:3000',
+  // bundle the client for webpack-dev-server
+  // and connect to the provided endpoint
+
+  'webpack/hot/only-dev-server',
+  // bundle the client for hot reloading
+  // only- means to only hot reload for successful updates
+
+  './src/main.tsx',
+  // the entry point of our app
+]
+
 module.exports = {
 
-  entry: [
-    'react-hot-loader/patch',
-    // activate HMR for React
-
-    'webpack-dev-server/client?http://localhost:3000',
-    // bundle the client for webpack-dev-server
-    // and connect to the provided endpoint
-
-    'webpack/hot/only-dev-server',
-    // bundle the client for hot reloading
-    // only- means to only hot reload for successful updates
-
-    './src/main.tsx',
-    // the entry point of our app
-  ],
+  entry,
 
   output: {
     path: path.join(__dirname, '/dist'),
@@ -26,7 +33,7 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  devtool: 'source-map',
+  devtool: PROD ? void 0 : 'source-map',
 
   resolve: {
     modules: [
@@ -40,12 +47,9 @@ module.exports = {
     rules: [
       {
         test: /.tsx?$/,
-        use: [{ loader: 'ts-loader' }]
+        use: [{ loader: 'ts-loader' }],
+        exclude: /node_modules(?!\/webpack-dev-server)/,
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ['style-loader', 'css-loader']
-      // }
     ]
 
   },

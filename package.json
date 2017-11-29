@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
+    "build": "NODE_ENV=production webpack -p",
     "start": "webpack-dev-server --progress --colors --inline --watch",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' && tsc -p ./ --noEmit",
     "test": "cross-env NODE_ENV=test NODE_PATH=src:test mocha",
@@ -87,6 +87,6 @@
     "typescript": "^2.6.2",
     "typescript-eslint-parser": "^9.0.1",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.5"
+    "webpack-dev-server": "^2.7.1"
   }
 }
