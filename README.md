@@ -12,7 +12,7 @@
 ## Getting started
 
 ```shell
-$ git clone git@github.com:kamataryo/react-redux-typescript-boilerplate.git
+$ git clone https://github.com/kamataryo/react-redux-typescript-boilerplate.git
 $ cd react-redux-typescript-boilerplate
 $ npm install
 ```
