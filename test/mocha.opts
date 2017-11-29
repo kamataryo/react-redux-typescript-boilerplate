@@ -1,5 +1,6 @@
 --require intelli-espower-loader
 --require ts-node/register
+--require test/setup.js
 
 test/unit/**/*.test.ts
 test/unit/**/*.test.tsx

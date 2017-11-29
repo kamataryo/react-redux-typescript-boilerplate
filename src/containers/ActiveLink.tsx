@@ -10,7 +10,7 @@ interface AntiStateProps {
   store?    : any,
 }
 
-const mapStateToProps = (state: RootState): StateProps => {
+export const mapStateToProps = (state: RootState): StateProps => {
   const location = state.routing.location
   return ({
     pathname: location ? location.pathname : '',
