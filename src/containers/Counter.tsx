@@ -8,7 +8,7 @@ interface StateProps {
 }
 
 interface AntiStateProps {
-  counter? : number,
+  count? : number,
 }
 
 interface DispatchProps {
